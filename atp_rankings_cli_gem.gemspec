@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "ATP World Tour Rankings"
   spec.description   = "Provides Top10 of Male Tennis Players and information about their last played tournament."
-  spec.homepage      = "TBD" #{}"https://rubygems.org/gems/atp_rankings_cli_gem"
+  spec.homepage      = "https://learn.co"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
