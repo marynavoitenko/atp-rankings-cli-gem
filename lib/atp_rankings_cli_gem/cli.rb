@@ -3,13 +3,7 @@ class AtpRankingsCliGem::CLI
   def call
     puts ""
     puts "~~~ Welcome to ATP World Tour Rankings! ~~~"
-    puts ""
-    puts "Top 10 Tennis Players:"
-    puts ""
-    puts "1. Rafael Nadal"
-    puts "2. Roger Federer"
-    puts "3. Marat Safin"
-    puts ""
+    display_rankings
     input = ""
     until input == "exit" do
       puts ""
@@ -18,13 +12,7 @@ class AtpRankingsCliGem::CLI
       puts ""
       input = gets.strip
       if input == "rankings"
-        puts ""
-        puts "Top 10 Tennis Players:"
-        puts ""
-        puts "1. Rafael Nadal"
-        puts "2. Roger Federer"
-        puts "3. Marat Safin"
-        puts ""
+        display_rankings
       elsif input.to_i.between?(1,10)
         puts ""
         puts "Last event played..."
@@ -36,6 +24,16 @@ class AtpRankingsCliGem::CLI
 
     end
     puts "See you later!"
+  end
+
+  def display_rankings
+    puts ""
+    puts "Top 10 Tennis Players:"
+    puts ""
+    puts "1. Rafael Nadal"
+    puts "2. Roger Federer"
+    puts "3. Marat Safin"
+    puts ""
   end
 
 end
