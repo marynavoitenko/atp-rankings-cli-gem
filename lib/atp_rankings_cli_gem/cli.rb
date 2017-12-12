@@ -17,8 +17,10 @@ class AtpRankingsCliGem::CLI
       elsif input.to_i.between?(1,10)
         puts ""
         AtpRankingsCliGem::Scraper.scrape_profile_page(input)
-        puts "Last event played..."
-        puts "Last opponent played..."
+        player_profile = AtpRankingsCliGem::Player.all[input.to_i-1]
+        puts "Selected player: #{player_profile.name}"
+        puts "Last event played: #{player_profile.last_event}"
+        puts "Last opponent played: #{player_profile.last_opponent}"
         puts ""
       elsif input != "exit"
         puts "O_o invalid input."
