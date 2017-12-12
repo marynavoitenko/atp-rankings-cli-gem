@@ -16,8 +16,7 @@ class AtpRankingsCliGem::CLI
         display_rankings
       elsif input.to_i.between?(1,10)
         puts ""
-        profile_url = base_url + AtpRankingsCliGem::Player.all[input.to_i - 1].url
-        AtpRankingsCliGem::Scraper.scrape_profile_page(profile_url)
+        AtpRankingsCliGem::Scraper.scrape_profile_page(input)
         puts "Last event played..."
         puts "Last opponent played..."
         puts ""

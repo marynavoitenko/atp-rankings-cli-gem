@@ -22,6 +22,11 @@ class AtpRankingsCliGem::Player
     )
   end
 
+  def add_player_activity(last_event_played, last_opponent_played)
+    self.last_event=last_event_played
+    self.last_opponent=last_opponent_played
+  end
+
   def self.all
     @@all
   end

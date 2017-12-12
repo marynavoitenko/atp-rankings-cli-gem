@@ -30,9 +30,11 @@ class AtpRankingsCliGem::Scraper
   end
 
   def self.scrape_profile_page(index)
-    profile_url = self.profile_url(index-1)
+    profile_url = self.profile_url(index.to_i-1)
     page = Nokogiri::HTML(open(profile_url))
-
+    last_event_played = page.css('td.title-content a').first.text
+    last_opponent_played = page.css('.day-table-name a').first.text
+    AtpRankingsCliGem::Player.all[index.to_i-1].add_player_activity(last_event_played, last_opponent_played)
   end
 
 end
