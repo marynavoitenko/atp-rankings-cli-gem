@@ -1,4 +1,4 @@
-class Player
+class AtpRankingsCliGem::Player
   attr_accessor :name, :country, :age, :url, :last_event, :last_opponent
 
   def initialize (name, country, age, url, last_event=nil, last_opponent=nil)
