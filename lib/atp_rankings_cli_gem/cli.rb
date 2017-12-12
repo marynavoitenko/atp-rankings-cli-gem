@@ -30,9 +30,12 @@ class AtpRankingsCliGem::CLI
     puts ""
     puts "Top 10 Tennis Players:"
     puts ""
-    puts "1. Rafael Nadal"
-    puts "2. Roger Federer"
-    puts "3. Marat Safin"
+    # puts "1. Rafael Nadal"
+    # puts "2. Roger Federer"
+    # puts "3. Marat Safin"
+    AtpRankingsCliGem::Player.all.each.with_index do |player, i|
+      puts "#{i}. #{player.name} - #{player.country} - age: #{player.age}"
+    end
     puts ""
   end
 

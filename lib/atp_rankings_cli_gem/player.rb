@@ -19,7 +19,6 @@ class AtpRankingsCliGem::Player
       player.css('td.country-cell div div img')[0]['alt'],
       player.css('td.age-cell').text.strip,
       player.css('td.player-cell a')[0]['href']
-
     )
   end
 
