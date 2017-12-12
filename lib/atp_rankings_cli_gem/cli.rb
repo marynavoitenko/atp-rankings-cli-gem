@@ -35,7 +35,7 @@ class AtpRankingsCliGem::CLI
     # puts "2. Roger Federer"
     # puts "3. Marat Safin"
     AtpRankingsCliGem::Player.all.each.with_index do |player, i|
-      puts "#{i}. #{player.name} - #{player.country} - age: #{player.age}"
+      puts "#{i+1}. #{player.name} - #{player.country} - age: #{player.age}"
     end
     puts ""
   end
