@@ -1,7 +1,9 @@
 class AtpRankingsCliGem::CLI
 
   def call
-    AtpRankingsCliGem::Scraper.scrape_rankings_page
+    base_url = 'http://www.atpworldtour.com'
+    rankings_url = base_url + '/en/rankings/singles'
+    AtpRankingsCliGem::Scraper.scrape_rankings_page(rankings_url)
     puts ""
     puts "~~~ Welcome to ATP World Tour Rankings! ~~~"
     display_rankings
@@ -16,6 +18,8 @@ class AtpRankingsCliGem::CLI
         display_rankings
       elsif input.to_i.between?(1,10)
         puts ""
+        profile_url = base_url + AtpRankingsCliGem::Player.all[input.to_i - 1].url
+        AtpRankingsCliGem::Scraper.scrape_profile_page(profile_url)
         puts "Last event played..."
         puts "Last opponent played..."
         puts ""
@@ -31,9 +35,6 @@ class AtpRankingsCliGem::CLI
     puts ""
     puts "Top 10 Tennis Players:"
     puts ""
-    # puts "1. Rafael Nadal"
-    # puts "2. Roger Federer"
-    # puts "3. Marat Safin"
     AtpRankingsCliGem::Player.all.each.with_index do |player, i|
       puts "#{i+1}. #{player.name} - #{player.country} - age: #{player.age}"
     end
