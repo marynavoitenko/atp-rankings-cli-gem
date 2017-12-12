@@ -13,7 +13,7 @@ class AtpRankingsCliGem::Scraper
   def self.scrape_rankings_page
     page = Nokogiri::HTML(open(self.rankings_url))
 
-    page.css('.mega-table tbody tr').each do |player|
+    page.css('.mega-table tbody tr')[0..9].each do |player|
       AtpRankingsCliGem::Player.create_from_scraper(player)
     end
 
