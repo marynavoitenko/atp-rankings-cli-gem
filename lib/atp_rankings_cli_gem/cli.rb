@@ -1,6 +1,7 @@
 class AtpRankingsCliGem::CLI
 
   def call
+    AtpRankingsCliGem::Scraper.scrape_rankings_page
     puts ""
     puts "~~~ Welcome to ATP World Tour Rankings! ~~~"
     display_rankings
