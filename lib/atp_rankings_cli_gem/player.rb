@@ -10,6 +10,7 @@ class AtpRankingsCliGem::Player
     @url = url
     @last_event = last_event if last_event
     @last_opponent = last_opponent if last_opponent
+    @@all << self
   end
 
   def self.create_from_scraper(player)
@@ -18,13 +19,12 @@ class AtpRankingsCliGem::Player
       player.css('td.country-cell div div img')[0]['alt'],
       player.css('td.age-cell').text.strip,
       player.css('td.player-cell a')[0]['href']
-    )
-    @@all << self
 
+    )
   end
 
   def self.all
     @@all
   end
-  
+
 end
