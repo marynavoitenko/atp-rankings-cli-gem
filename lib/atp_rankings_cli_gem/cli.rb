@@ -1,9 +1,7 @@
 class AtpRankingsCliGem::CLI
 
   def call
-    base_url = 'http://www.atpworldtour.com'
-    rankings_url = base_url + '/en/rankings/singles'
-    AtpRankingsCliGem::Scraper.scrape_rankings_page(rankings_url)
+    AtpRankingsCliGem::Scraper.scrape_rankings_page
     puts ""
     puts "~~~ Welcome to ATP World Tour Rankings! ~~~"
     display_rankings
