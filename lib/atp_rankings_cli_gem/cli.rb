@@ -21,6 +21,7 @@ class AtpRankingsCliGem::CLI
         puts "Selected player: #{player_profile.name}"
         puts "Last event played: #{player_profile.last_event}"
         puts "Last opponent played: #{player_profile.last_opponent}"
+        puts "W/L: #{player_profile.winlose}"
         puts ""
       elsif input != "exit"
         puts "O_o invalid input."

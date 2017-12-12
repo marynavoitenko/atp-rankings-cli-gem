@@ -24,7 +24,8 @@ class AtpRankingsCliGem::Scraper
     page = Nokogiri::HTML(open(profile_url))
     last_event_played = page.css('td.title-content a').first.text
     last_opponent_played = page.css('.day-table-name a').first.text
-    AtpRankingsCliGem::Player.all[index.to_i-1].add_player_activity(last_event_played, last_opponent_played)
+    winlose = page.css('.activity-tournament-table .mega-table tbody tr td:nth-child(4)').first.text.strip
+    AtpRankingsCliGem::Player.all[index.to_i-1].add_player_activity(last_event_played, last_opponent_played, winlose)
   end
 
 end
