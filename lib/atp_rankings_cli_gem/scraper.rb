@@ -7,7 +7,7 @@ class AtpRankingsCliGem::Scraper
   end
 
   def self.profile_url(index)
-    profile_url = BASE_URL + AtpRankingsCliGem::Player.all[index].url
+    profile_url = BASE_URL + AtpRankingsCliGem::Player.all[index].url.gsub("overview", "player-activity")
   end
 
   def self.scrape_rankings_page
