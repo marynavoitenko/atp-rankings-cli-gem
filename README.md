@@ -1,8 +1,8 @@
 # AtpRankingsCliGem
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/atp_rankings_cli_gem`. To experiment with that code, run `bin/console` for an interactive prompt.
+ATP World Tour Rankings
 
-TODO: Delete this and the text above, and describe your gem
+Interactive CLI Application. Provides ATP Top10 Tennis Players list, and information about player's last tournament based on user's selection.
 
 ## Installation
 
