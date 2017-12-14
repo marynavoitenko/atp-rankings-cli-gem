@@ -1,5 +1,6 @@
 class AtpRankingsCliGem::Player
-  attr_accessor :name, :country, :age, :url, :last_event, :last_opponent, :winlose
+  attr_reader :name, :country, :age, :url 
+  attr_accessor :last_event, :last_opponent, :winlose
 
   @@all = []
 
