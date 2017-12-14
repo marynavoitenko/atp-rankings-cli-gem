@@ -10,9 +10,12 @@ class AtpRankingsCliGem::Scraper
     profile_url = BASE_URL + AtpRankingsCliGem::Player.all[index].url.gsub("overview", "player-activity")
   end
 
-  def self.scrape_rankings_page
-    page = Nokogiri::HTML(open(self.rankings_url))
+  def self.get_page(page)
+    Nokogiri::HTML(open(page))
+  end
 
+  def self.scrape_rankings_page
+    page = self.get_page(self.rankings_url)
     page.css('.mega-table tbody tr')[0..9].each do |player|
       AtpRankingsCliGem::Player.create_from_scraper(player)
     end
@@ -20,8 +23,7 @@ class AtpRankingsCliGem::Scraper
   end
 
   def self.scrape_profile_page(index)
-    profile_url = self.profile_url(index.to_i-1)
-    page = Nokogiri::HTML(open(profile_url))
+    page = self.get_page(self.profile_url(index.to_i-1))
     last_event_played = page.css('td.title-content a').first.text
     last_opponent_played = page.css('.day-table-name a').first.text
     winlose = page.css('.activity-tournament-table .mega-table tbody tr td:nth-child(4)').first.text.strip
