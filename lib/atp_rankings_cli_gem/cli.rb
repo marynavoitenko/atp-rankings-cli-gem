@@ -16,8 +16,10 @@ class AtpRankingsCliGem::CLI
         display_rankings
       elsif input.to_i.between?(1,10)
         puts ""
-        AtpRankingsCliGem::Scraper.scrape_profile_page(input)
         player_profile = AtpRankingsCliGem::Player.all[input.to_i-1]
+        if !player_profile.last_event
+          AtpRankingsCliGem::Scraper.scrape_profile_page(input)
+        end
         puts "Selected player: #{player_profile.name}"
         puts "Last event played: #{player_profile.last_event}"
         puts "Last opponent played: #{player_profile.last_opponent}"
