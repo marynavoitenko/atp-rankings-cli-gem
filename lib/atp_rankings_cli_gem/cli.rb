@@ -1,7 +1,9 @@
 class AtpRankingsCliGem::CLI
 
   def call
+    puts "loading...please...wait..0-0"
     AtpRankingsCliGem::Scraper.scrape_rankings_page
+    AtpRankingsCliGem::Scraper.scrape_profile_page
     puts ""
     puts "~~~ Welcome to ATP World Tour Rankings! ~~~"
     display_rankings
@@ -17,9 +19,6 @@ class AtpRankingsCliGem::CLI
       elsif input.to_i.between?(1,10)
         puts ""
         player_profile = AtpRankingsCliGem::Player.all[input.to_i-1]
-        if !player_profile.last_event
-          AtpRankingsCliGem::Scraper.scrape_profile_page(input)
-        end
         puts "Selected player: #{player_profile.name}"
         puts "Last event played: #{player_profile.last_event}"
         puts "Last opponent played: #{player_profile.last_opponent}"
@@ -37,8 +36,8 @@ class AtpRankingsCliGem::CLI
     puts ""
     puts "Top 10 Tennis Players:"
     puts ""
-    AtpRankingsCliGem::Player.all.each.with_index do |player, i|
-      puts "#{i+1}. #{player.name} - #{player.country} - age: #{player.age}"
+    AtpRankingsCliGem::Player.all.each.with_index(1) do |player, i|
+      puts "#{i}. #{player.name} - #{player.country} - age: #{player.age}"
     end
     puts ""
   end
